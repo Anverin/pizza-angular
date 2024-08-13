@@ -1,0 +1,20 @@
+<div class="product">
+
+      <div class="product-image" *ngIf="product.image">
+<!--        <img src="assets/images/items/{{product.image}}">-->
+        <img src="{{product.image}}">
+      </div>
+
+  <custom-title [title]="product.title | uppercase"></custom-title>
+
+  <div class="product-text">{{product.description | wordUpper: ['сыр','томат', 'сос']}}</div>
+  <div class="product-action" #elem>
+<!--    <button class="btn btn-add-to-cart" (click)="addProductToCard()">В корзину</button>-->
+    <a class="btn btn-add-to-cart" routerLink="/order" [queryParams]="{product: product.title}">В корзину</a>
+    <a class="btn btn-white" [routerLink]="['/products', product.id]">Подробнее</a>
+  </div>
+</div>
+
+
+
+<!--(click)="addToCart(product, orderElement)"-->
